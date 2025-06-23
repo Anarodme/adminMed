@@ -1,13 +1,12 @@
-
 <?php
 // config/database.php
 function getDBConnection() {
-    // Variables de entorno de Railway
-    $host = $_ENV['MYSQLHOST'] ?? 'localhost';
-    $port = $_ENV['MYSQLPORT'] ?? '3306';
-    $database = $_ENV['MYSQLDATABASE'] ?? 'adminMed';
-    $username = $_ENV['MYSQLUSER'] ?? 'root';
-    $password = $_ENV['MYSQLPASSWORD'] ?? 'rodme09*';
+    // Variables de entorno de Railway usando getenv()
+    $host = getenv('MYSQLHOST') ?: 'localhost';
+    $port = getenv('MYSQLPORT') ?: '3306';
+    $database = getenv('MYSQLDATABASE') ?: 'adminMed';
+    $username = getenv('MYSQLUSER') ?: 'root';
+    $password = getenv('MYSQLPASSWORD') ?: 'rodme09*';
     
     try {
         $dsn = "mysql:host=$host;port=$port;dbname=$database;charset=utf8mb4";
